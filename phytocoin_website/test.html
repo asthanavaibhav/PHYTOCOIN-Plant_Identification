@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPFS and Ethereum Integration</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
+    <script>
+        async function connectMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    // Request account access
+                    await ethereum.request({ method: 'eth_requestAccounts' });
+                    window.web3 = new Web3(window.ethereum);
+                    const accounts = await web3.eth.getAccounts();
+                    console.log('Connected account:', accounts[0]);
+                } catch (error) {
+                    console.error('User denied account access:', error);
+                }
+            } else {
+                alert('Please install MetaMask to use this feature!');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('connectButton').addEventListener('click', connectMetaMask);
+        });
+    </script>
+</head>
+<body>
+    <button id="connectButton">Connect MetaMask</button>
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPFS Data Fetch</title>
+    <script>
+        async function fetchDataFromIPFS() {
+            const url = new URL("https://ipfs.io/ipfs/QmXMMEuSdwdUaEfyweGpNVmxjX3cX7vgbfGCMfF1aQFabh");
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.text();
+                document.getElementById('container').innerHTML = data;
+            } catch (error) {
+                console.error('Error fetching data from IPFS:', error);
+            }
+        }
+
+        window.onload = fetchDataFromIPFS;
+    </script>
+</head>
+<body>
+    <div id="container">Loading data from IPFS...</div>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPFS and Ethereum Integration</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
+    <script>
+        async function connectMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    await ethereum.request({ method: 'eth_requestAccounts' });
+                    window.web3 = new Web3(window.ethereum);
+                    const accounts = await web3.eth.getAccounts();
+                    console.log('Connected account:', accounts[0]);
+                } catch (error) {
+                    console.error('User denied account access:', error);
+                }
+            } else {
+                alert('Please install MetaMask to use this feature!');
+            }
+        }
+
+        async function fetchDataFromIPFS() {
+            const url = new URL("https://ipfs.io/ipfs/QmXMMEuSdwdUaEfyweGpNVmxjX3cX7vgbfGCMfF1aQFabh");
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.text();
+                document.getElementById('container').innerHTML = data;
+            } catch (error) {
+                console.error('Error fetching data from IPFS:', error);
+            }
+        }
+
+        async function interactWithContract() {
+            if (typeof window.ethereum !== 'undefined') {
+                const web3 = new Web3(window.ethereum);
+
+                const contractABI = [
+                    {
+                        "constant": true,
+                        "inputs": [],
+                        "name": "myFunction",
+                        "outputs": [
+                            {
+                                "name": "",
+                                "type": "uint256"
+                            }
+                        ],
+                        "payable": false,
+                        "stateMutability": "view",
+                        "type": "function"
+                    },
+                    {
+                        "constant": false,
+                        "inputs": [
+                            {
+                                "name": "newValue",
+                                "type": "uint256"
+                            }
+                        ],
+                        "name": "setMyValue",
+                        "outputs": [],
+                        "payable": false,
+                        "stateMutability": "nonpayable",
+                        "type": "function"
+                    }
+                ];
+
+                const contractAddress = '0x37E2bb8e0459465bd338b1A2540aF0D87584E5C3';
+                const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+                const accounts = await web3.eth.getAccounts();
+                const account = accounts[0];
+
+                try {
+                    const result = await contract.methods.myFunction().call({ from: account });
+                    console.log('Contract read method call result:', result);
+
+                    const txResult = await contract.methods.setMyValue(42).send({ from: account });
+                    console.log('Transaction result:', txResult);
+                } catch (error) {
+                    console.error('Error interacting with contract:', error);
+                }
+            } else {
+                alert('Please install MetaMask to use this feature!');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('connectButton').addEventListener('click', connectMetaMask);
+            document.getElementById('interactButton').addEventListener('click', interactWithContract);
+        });
+
+        window.onload = fetchDataFromIPFS;
+    </script>
+</head>
+<body>
+    <button id="connectButton">Connect MetaMask</button>
+    <button id="interactButton">Interact with Contract</button>
+    <div id="container">Loading data from IPFS...</div>
+</body>
+</html>

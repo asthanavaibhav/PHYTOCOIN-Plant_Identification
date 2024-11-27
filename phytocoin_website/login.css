@@ -1,0 +1,94 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #2c3e50, #3498db);
+    font-family: Arial, sans-serif;
+  }
+  
+  main {
+    width: 35rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 3rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(5px);
+  }
+  
+  h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .form-inner-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+  }
+  
+  label {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  input {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #3498db;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  button:hover {
+    opacity: 0.6;
+  }
+  
+  .register-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  .forgot-password {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  @media screen and (max-width: 600px) {
+    main {

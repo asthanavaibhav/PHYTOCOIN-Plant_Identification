@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 128
+names: ['.', 'Amruthaballi', 'Anthracnose', 'Astma_weed', 'Bamboo', 'CVC', 'Citrus bacterial spot', 'Citrus greasy spot', 'Hibiscus', 'Jackfruit', 'Jasmine', 'Kambajala', 'Kohlrabi', 'Lantana', 'Nelavembu', 'Parijatha', 'Phoma blight', 'alovera', 'alternaria blight', 'amla', 'anthracnosenooni', 'arali', 'ashoka', 'bacterial blast', 'bacterial wilt', 'badipala', 'balloon_Vine', 'beans', 'betel', 'bhrami', 'black root rot raddish', 'botryis blight', 'bringaraja', 'camphor', 'caricature', 'castor', 'catharanthus', 'chakte', 'chilly', 'citron canker', 'citron lime', 'citrus anthracnose', 'coffee', 'coffee leaf rust', 'coriender', 'coriender blight', 'curry', 'defected arali', 'defected betel', 'defected camphor', 'defectedAmruthaballi', 'defectedBamboo', 'defectedalovera', 'defectedamla', 'defectedashoka', 'defectedbadipala', 'defectedballoon_Vine', 'defectedbeans', 'defectedbhrami', 'defectedbringaraja', 'defectedcatharanthus', 'defectedseethaashoka', 'defectedspinach', 'defectedtamarind', 'defectedtaro', 'defectedtecoma', 'defectedthambe', 'defectedtomato', 'defectedtulsi', 'defectetedAstma_weed', 'dieback', 'disease in leaf', 'disease inamla', 'doddpathre', 'drumstick', 'ekka', 'eucalpytus', 'fasiation', 'ganigale', 'ganike', 'gasagase', 'ginger', 'globe amarnath', 'henna', 'honge', 'insulin', 'kamakasturi', 'kasamburga', 'late blightcaricature', 'leaf blotch', 'leaf curl', 'leaf rust', 'leaf spot', 'lemon', 'lemongrass', 'malabar_nut', 'mango', 'marigold', 'mint', 'neem', 'nerale', 'nooni', 'onion', 'padri', 'papaya', 'pea', 'pepper', 'pomgrana', 'pomgranate', 'powdery mildew', 'pumpkin', 'raddish', 'rose', 'sampige', 'sapota', 'seedling blight', 'seethaashoka', 'seethaphala', 'sooty mould', 'spinach', 'tamarind', 'taro', 'tecoma', 'thambe', 'tomato', 'tulsi', 'turmeric', 'wilt']
+
+roboflow:
+  workspace: my-workspace-z5slm
+  project: pytocoin
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/my-workspace-z5slm/pytocoin/dataset/1
